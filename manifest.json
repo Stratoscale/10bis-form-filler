@@ -1,0 +1,24 @@
+{
+  "name": "10bis form filler",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "10bis form filler",
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+          "http://*/*",
+	      "https://*/*"
+      ],
+      "all_frames" : true
+    }
+  ],
+  "web_accessible_resources" : [
+      "injected.js"
+  ],
+  "permissions": [
+     "http://locahost:2907/*"
+  ]
+}
