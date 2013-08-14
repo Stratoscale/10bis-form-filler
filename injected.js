@@ -67,6 +67,16 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "Shahar Lev") {
+            if (content === "עגבניה" ||
+                content === "מלפפון" ||
+                content === "נבטים" ||
+                content === "זיתים שחורים" ||
+                content === "תיבול בזיליקום" ||
+                content === "פסטו")
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
