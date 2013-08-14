@@ -45,7 +45,7 @@ function autofill() {
                 content === "נבטים" ||
                 content === "מלפפון חמוץ" ||
                 content === "תיבול שמן זית" ||
-                content === "ויניגרט בלסמי" ||
+                content === "וינגריט בלסמי" ||
                 content === "איטלקי חריף")
                 should_click = true;
         }
