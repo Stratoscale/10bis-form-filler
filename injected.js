@@ -77,6 +77,19 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "Maor Vanmak") {
+            if (content === "חסה" ||
+                content === "עלי בייבי" ||
+                content === "עזר" ||
+                content === "פלפל אדום" ||
+                content === "עגבניות שרי" ||
+                content === "גרעיני חמנייה" ||
+                content === "תיבול לימון" ||
+                content === "טחינה" ||
+                content === "איטלקי חריף")
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
