@@ -17,6 +17,11 @@ function EXT10BIS_getTextNodesIn(node, includeWhitespaceNodes) {
     return textNodes;
 }
 
+// Are you tired of eating the exact same salad every time? SALVATION!
+function maybe(flag, probability) {
+    return (Math.random() < probability) && flag;
+}
+
 function autofill() {
     var i, item;
 
@@ -72,6 +77,7 @@ function autofill() {
                 content === "מלפפון" ||
                 content === "נבטים" ||
                 content === "זיתים שחורים" ||
+                maybe(content === "קרוטונים", 0.3) || 
                 content === "תיבול בזיליקום" ||
                 content === "פסטו")
                 should_click = true;
