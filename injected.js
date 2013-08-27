@@ -75,9 +75,9 @@ function autofill() {
         if (personName === "Shahar Lev") {
             if (content === "עגבניה" ||
                 content === "מלפפון" ||
-                content === "נבטים" ||
+                content === "חמוציות" ||
                 content === "זיתים שחורים" ||
-                maybe(content === "קרוטונים", 0.3) || 
+                maybe(content === "קרוטונים", 0.5) ||
                 content === "תיבול בזיליקום" ||
                 content === "פסטו")
                 should_click = true;
