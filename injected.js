@@ -78,8 +78,7 @@ function autofill() {
                 content === "חמוציות" ||
                 content === "זיתים שחורים" ||
                 maybe(content === "קרוטונים", 0.5) ||
-                content === "תיבול בזיליקום" ||
-                content === "פסטו")
+                content === "תיבול בזיליקום")
                 should_click = true;
         }
 
