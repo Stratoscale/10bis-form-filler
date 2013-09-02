@@ -95,6 +95,27 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "אריאל מייסלוס") {
+            if (content === "עלי בייבי"" ||
+                content === "תירס" ||
+                content === "נבטים" ||
+                content === "נבטי חמנייה" ||
+                content === "אפונה ירוקה" ||
+                content === "שעועית ירוקה" ||
+                content === "בצל סגול" ||
+                content === "סלק אדום מגורד" ||
+                content === "עגבניות שרי" ||
+                content === "חציל בתנור" ||
+                content === "פטריות" ||
+                content === "קישואים בתנור" ||
+                content === "עלי בייבי" ||
+                content === "כדורי מוצרלה (₪ 3.00)" ||
+                content === "זעתר" ||
+                content === "ויניגרט הדרים" ||
+                content === "טחינה")
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
