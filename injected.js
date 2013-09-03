@@ -96,7 +96,7 @@ function autofill() {
         }
 
         if (personName === "אריאל מייסלוס") {
-            if (content === "עלי בייבי"" ||
+            if (content === "עלי בייבי" ||
                 content === "תירס" ||
                 content === "נבטים" ||
                 content === "נבטי חמנייה" ||
