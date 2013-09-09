@@ -40,6 +40,11 @@ function autofill() {
         var content = $.trim(item.data);
         var should_click = false;
 
+        var parenthesis = content.indexOf("(");
+        if (parenthesis != -1) {
+                content = content.substring(0, parenthesis);
+        }
+
         if (personName === "דן אלוני") {
             if (content === "חסה" ||
                 content === "מלפפון" ||
@@ -109,7 +114,7 @@ function autofill() {
                 content === "פטריות" ||
                 content === "קישואים בתנור" ||
                 content === "עלי בייבי" ||
-                content === "כדורי מוצרלה (₪ 3.00)" ||
+                content === "כדורי מוצרלה" ||
                 content === "זעתר" ||
                 content === "ויניגרט הדרים" ||
                 content === "טחינה")
@@ -127,15 +132,15 @@ function autofill() {
                 content === "מלפפון חמוץ" ||
                 content === "עגבניות שרי" ||
                 content === "זיתים ירוקים" ||
-                content === "ביצה קשה (₪ 3.00)" ||
+                content === "ביצה קשה" ||
                 content === "תיבול שמן זית" ||
                 content === "עשבי תיבול"
                 )
                 should_click = true;
         }
 
-        if (personName === "ליעז קמפר") {
-            if (content === "עגבניות" ||
+        if (personName === "ליעז קמפר ") { // the space there is intentional
+            if (content === "עגבניה" ||
                 content === "תירס" ||
                 content === "נבטים" ||
                 content === "אפונה ירוקה" ||
@@ -152,7 +157,6 @@ function autofill() {
                 content === "טחינה")
                 should_click = true;
         }
-
 
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
