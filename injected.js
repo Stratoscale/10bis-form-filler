@@ -134,6 +134,26 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "ליעז קמפר") {
+            if (content === "עגבניות" ||
+                content === "תירס" ||
+                content === "נבטים" ||
+                content === "אפונה ירוקה" ||
+                content === "שעועית ירוקה" ||
+                content === "סלק אדום מגורד" ||
+                content === "עגבניות שרי" ||
+                content === "חציל בתנור" ||
+                content === "פלפל אדום" ||
+                content === "מלפפון" ||
+                content === "גזר" ||
+                content === "פטריות" ||
+                content === "כרוב לבן" ||
+                content === "קישואים בתנור" ||
+                content === "טחינה")
+                should_click = true;
+        }
+
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
