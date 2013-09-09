@@ -116,6 +116,24 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "רותם דפני") {
+            if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "תירס" ||
+                content === "כרוב לבן" ||
+                content === "פלפל אדום" ||
+                content === "נבטי חמנייה" ||
+                content === "בצל סגול" ||
+                content === "מלפפון חמוץ" ||
+                content === "עגבניות שרי" ||
+                content === "זיתים ירוקים" ||
+                content === "ביצה קשה (₪ 3.00)" ||
+                content === "תיבול שמן זית" ||
+                content === "עשבי תיבול"
+                )
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
