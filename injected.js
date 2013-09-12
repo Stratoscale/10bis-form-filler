@@ -40,7 +40,7 @@ function autofill() {
         var content = $.trim(item.data);
         var should_click = false;
 
-        var parenthesis = content.indexOf("(");
+        var parenthesis = content.indexOf(" (");
         if (parenthesis != -1) {
                 content = content.substring(0, parenthesis);
         }
@@ -154,6 +154,45 @@ function autofill() {
                 content === "פטריות" ||
                 content === "כרוב לבן" ||
                 content === "קישואים בתנור" ||
+                content === "טחינה")
+                should_click = true;
+        }
+
+        if (personName === "דורון גיל") {
+            if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "תירס" ||
+                content === "כרוב אדום" ||
+                content === "כרוב לבן" ||
+                content === "נבטים" ||
+                content === "נבטי חמנייה" ||
+                content === "שעועית ירוקה" ||
+                content === "מלפפון חמוץ" ||
+                content === "חמוציות" ||
+                content === "עגבניות שרי" ||
+                content === "פטריות" ||
+                content === "זיתים שחורים" ||
+                content === "גרעיני חומוס" ||
+                content === "גרעיני חמנייה" ||
+                content === "גבינת עיזים" ||
+                content === "טונה" ||
+                content === "תיבול לימון" ||
+                content === "וינגריט בלסמי")
+                should_click = true;
+        }
+
+        if (personName === "איתי בוגנר") {
+            if (content === "עלי בייבי" ||
+                content === "עגבניה" ||
+                content === "מלפפון" ||
+                content === "פלפל אדום" ||
+                content === "אפונה ירוקה" ||
+                content === "חמוציות" ||
+                content === "קרוטונים" ||
+                content === "עגבניות שרי" ||
+                content === "חציל בתנור" ||
+                content === "זיתים ירוקים" ||
+                content === "חרדל דבש" ||
                 content === "טחינה")
                 should_click = true;
         }
