@@ -89,11 +89,12 @@ function autofill() {
 
         if (personName === "Maor Vanmak") {
             if (content === "חסה" ||
-                content === "עלי בייבי" ||
-                content === "עזר" ||
+                content === "קרוטונים" ||
+                content === "מלפפון חמוץ" ||
                 content === "פלפל אדום" ||
                 content === "עגבניות שרי" ||
-                content === "גרעיני חמנייה" ||
+                content === "עגבניה"||
+                content === "תירס" ||
                 content === "תיבול לימון" ||
                 content === "טחינה" ||
                 content === "איטלקי חריף")
