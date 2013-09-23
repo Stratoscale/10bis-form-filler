@@ -40,10 +40,12 @@ function autofill() {
         var content = $.trim(item.data);
         var should_click = false;
 
-        var parenthesis = content.indexOf(" (");
+        var parenthesis = content.indexOf("(");
         if (parenthesis != -1) {
                 content = content.substring(0, parenthesis);
         }
+
+        content = $.trim(content);
 
         if (personName === "דן אלוני") {
             if (content === "חסה" ||
@@ -118,6 +120,7 @@ function autofill() {
                 content === "כדורי מוצרלה" ||
                 content === "זעתר" ||
                 content === "ויניגרט הדרים" ||
+                content === "תיבול זעתר" ||
                 content === "טחינה")
                 should_click = true;
         }
