@@ -201,6 +201,26 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "חן שמלה") {
+            if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "אפונה ירוקה" ||
+                content === "תירס" ||
+                content === "פלפל צהוב קלוי בתנור" ||
+                content === "פלפל אדום" ||
+                content === "תפוח אדמה" ||
+                content === "חמוציות" ||
+                content === "קרוטונים" ||
+                content === "עגבניות שרי" ||
+                content === "חציל בתנור" ||
+                content === "קישואים בתנור" ||
+                content === "ביצה קשה" ||
+                content === "פטרוזיליה" ||
+                content === "שום ולימון" ||
+                content === "חרדל ודבש")
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
