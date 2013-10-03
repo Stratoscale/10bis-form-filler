@@ -205,6 +205,52 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "סימון גרינברג") {
+            if (content === "עלי בייבי" ||
+                content === "מלפפון" ||
+                content === "פלפל אדום" ||
+                content === "פלפל ירוק" ||
+                content === "נבטי חמנייה" ||
+                content === "אפונה ירוקה" ||
+                content === "סלק אדום מגורד" ||
+                content === "עדשים שחורים" ||
+                content === "עגבניות שרי" ||
+                content === "גרעיני חומוס" ||
+                content === "עירית" ||
+                content === "פטרוזיליה" ||
+                content === "כדורי מוצרלה" ||
+                content === "תיבול בזיליקום" ||
+                content === "איטלקי חריף"
+               )
+                should_click = true;
+        }
+
+        if (personName === "זיוון עורי") {
+            if (content === "חסה" ||
+                content === "מלפפון" ||
+                content === "עגבניה" ||
+                content === "עלי בייבי" ||
+                content === "פלפל אדום" ||
+                content === "נבטים" ||
+                content === "סלק אדום מגורד" ||
+                content === "עדשים שחורים" ||
+                content === "תפוח אדמה" ||
+                content === "שעועית ירוקה" ||
+                content === "בצל סגול" ||
+                content === "פטריות" ||
+                content === "גרעיני חמנייה" ||
+
+                content === "בורגול" ||
+                content === "גבינת עיזים" ||
+
+                content === "תיבול שמן זית" ||
+                content === "ויניגרט בלסמי" ||
+                content === "וינגירט הדרים"
+                // Unsupported yet: content === "פריגת תפוזים" ||
+               )
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
