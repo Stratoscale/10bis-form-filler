@@ -185,23 +185,8 @@ function autofill() {
                 should_click = true;
         }
 
-        if (personName === "איתי בוגנר") {
-            if (content === "עלי בייבי" ||
-                content === "עגבניה" ||
-                content === "מלפפון" ||
-                content === "פלפל אדום" ||
-                content === "אפונה ירוקה" ||
-                content === "חמוציות" ||
-                content === "קרוטונים" ||
-                content === "עגבניות שרי" ||
-                content === "חציל בתנור" ||
-                content === "זיתים ירוקים" ||
-                content === "חרדל דבש" ||
-                content === "טחינה")
-                should_click = true;
-        }
-
-        if (personName === "חן שמלה") {
+        if (personName === "חן שמלה"  ||
+            personName === "איתי בוגנר") {
             if (content === "מלפפון" ||
                 content === "גזר" ||
                 content === "אפונה ירוקה" ||
@@ -209,14 +194,13 @@ function autofill() {
                 content === "פלפל צהוב קלוי בתנור" ||
                 content === "פלפל אדום" ||
                 content === "תפוח אדמה" ||
-                content === "חמוציות" ||
                 content === "קרוטונים" ||
                 content === "עגבניות שרי" ||
-                content === "חציל בתנור" ||
                 content === "קישואים בתנור" ||
                 content === "ביצה קשה" ||
                 content === "פטרוזיליה" ||
-                content === "שום ולימון" ||
+                content === "תיבול לימון" ||
+                content === "טחינה" ||
                 content === "חרדל ודבש")
                 should_click = true;
         }
