@@ -236,16 +236,17 @@ function autofill() {
                 content === "עדשים שחורים" ||
                 content === "תפוח אדמה" ||
                 content === "שעועית ירוקה" ||
-                content === "בצל סגול" ||
+                content === "בצל ירוק" ||
                 content === "פטריות" ||
                 content === "גרעיני חמנייה" ||
+                content === "נבטי חמנייה" ||
 
                 content === "בורגול" ||
                 content === "גבינת עיזים" ||
 
                 content === "תיבול שמן זית" ||
                 content === "ויניגרט בלסמי" ||
-                content === "וינגירט הדרים"
+                content === "איטלקי חריף"
                 // Unsupported yet: content === "פריגת תפוזים" ||
                )
                 should_click = true;
