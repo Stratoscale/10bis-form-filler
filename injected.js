@@ -245,7 +245,7 @@ function autofill() {
                 content === "גבינת עיזים" ||
 
                 content === "תיבול שמן זית" ||
-                content === "ויניגרט בלסמי" ||
+                content === "וינגריט בלסמי" ||
                 content === "איטלקי חריף"
                 // Unsupported yet: content === "פריגת תפוזים" ||
                )
