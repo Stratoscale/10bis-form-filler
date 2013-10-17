@@ -158,7 +158,6 @@ function autofill() {
                 content === "פטריות" ||
                 content === "כרוב לבן" ||
                 content === "קישואים בתנור" ||
-                content === "איטלקי חריף" ||
                 content === "טחינה")
                 should_click = true;
         }
