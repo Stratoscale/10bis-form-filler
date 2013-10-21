@@ -252,6 +252,30 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "פבל פוקס") {
+            if (content === "חסה" ||
+                content === "עלי בייבי" ||
+                content === "עגבניה" ||
+                content === "גזר" ||
+                content === "פסטה" ||
+                content === "תירס" ||
+                content === "פלפל אדום" ||
+                content === "נבטים" ||
+                content === "נבטי חמנייה" ||
+                content === "בצל סגול" ||
+                content === "עגבניות שרי" ||
+                content === "חציל בתנור" ||
+                content === "גרעיני חמנייה" ||
+                content === "עירית" ||
+                content === "בצל ירוק" ||
+                content === "פטרוזיליה" ||
+                content === "בולגרית" ||
+                content === "תיבול זעתר" ||
+                content === "וינגריט בלסמי"
+               )
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
