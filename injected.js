@@ -84,6 +84,7 @@ function autofill() {
                 content === "מלפפון" ||
                 content === "נבטים" ||
                 maybe(content === "קרוטונים", 0.5) ||
+                content === "פסטו" ||
                 content === "תיבול בזיליקום")
                 should_click = true;
         }
