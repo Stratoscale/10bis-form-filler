@@ -149,7 +149,7 @@ function autofill() {
                 content === "תירס" ||
                 content === "נבטים" ||
                 content === "אפונה ירוקה" ||
-                content === "שעועית ירוקה" ||
+                content === "כרוב לבן" ||
                 content === "סלק אדום מגורד" ||
                 content === "עגבניות שרי" ||
                 content === "חציל בתנור" ||
