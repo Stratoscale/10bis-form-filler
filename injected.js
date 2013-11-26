@@ -219,7 +219,6 @@ function autofill() {
                 content === "גרעיני חומוס" ||
                 content === "עירית" ||
                 content === "פטרוזיליה" ||
-                content === "כדורי מוצרלה" ||
                 content === "תיבול בזיליקום" ||
                 content === "איטלקי חריף"
                )
