@@ -277,10 +277,30 @@ function autofill() {
                 should_click = true;
         }
 
+	if (personName === "מילה גנדלסמן") {
+            if (content === "חמוציות" ||
+                content === "גרעיני חמנייה" ||
+		content === "עלי בייבי" ||
+                content === "עדשים שחורים" ||
+                content === "פלפל אדום" ||
+                content === "בצל סגול" ||
+                content === "עגבניות שרי" ||
+                content === "עירית" ||
+                content === "פטריות" ||
+                content === "טונה" ||
+		content === "תפוח אדמה" ||
+           	content === "מלפפון חמוץ" ||
+           	content === "אפונה ירוקה" ||
+		content === "בורגול" ||
+	       	content === "חרדל דבש" ||
+		content === "איטלקי חריף"
+	       )
+                should_click = true;
+        }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
         }
     }
 }
-
