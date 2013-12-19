@@ -297,6 +297,24 @@ function autofill() {
 	       )
                 should_click = true;
         }
+        
+	if (personName === "אבל גורדון") {
+            if (content === "עגבניות שרי" ||
+		content === "גזר" ||
+		content === "פסטה" ||
+		content === "תירס" ||
+		content === "כדורי מוצרלה" ||
+		content === "בצל סגול" ||
+		content === "פטריות" ||
+		content === "פלפל צהוב קלוי בתנור" ||
+		content === "תיבול שמן זית" ||
+		content === "אפונה ירוקה" ||
+		content === "נבטים" ||
+		content === "חציל בתנור" ||
+		content === "טחינה"
+	       )
+                should_click = true;
+        }        
 
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
