@@ -303,13 +303,13 @@ function autofill() {
 		content === "גזר" ||
 		content === "פסטה" ||
 		content === "תירס" ||
-		content === "כדורי מוצרלה" ||
+		content === "גבינה צפתיתה" ||
 		content === "בצל סגול" ||
 		content === "פטריות" ||
 		content === "פלפל צהוב קלוי בתנור" ||
 		content === "תיבול שמן זית" ||
 		content === "אפונה ירוקה" ||
-		content === "נבטים" ||
+		content === "גרעיני חומוס" ||
 		content === "חציל בתנור" ||
 		content === "טחינה"
 	       )
