@@ -303,7 +303,6 @@ function autofill() {
 		content === "גזר" ||
 		content === "פסטה" ||
 		content === "תירס" ||
-		content === "גבינה צפתיתה" ||
 		content === "בצל סגול" ||
 		content === "פטריות" ||
 		content === "פלפל צהוב קלוי בתנור" ||
@@ -311,7 +310,8 @@ function autofill() {
 		content === "אפונה ירוקה" ||
 		content === "גרעיני חומוס" ||
 		content === "חציל בתנור" ||
-		content === "טחינה"
+		content === "טחינה" ||
+		content === "גבינת עיזים"
 	       )
                 should_click = true;
         }        
