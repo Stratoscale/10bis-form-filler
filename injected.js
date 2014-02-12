@@ -298,6 +298,27 @@ function autofill() {
                 should_click = true;
         }
         
+	if (personName === "גיא קרן") {
+      if (content === "עגבניה" ||
+		content === "מלפפון" ||
+		content === "פסטה" ||
+		content === "תירס" ||
+		content === "תפוח אדמה" ||
+		content === "בצל סגול" ||
+		content === "חמוציות" ||
+		content === "עדשים שחורים" ||
+		content === "קרוטונים" ||
+		content === "פטריות" ||
+		content === "זיתים ירוקים" ||
+		content === "גרעיני חמנייה" ||
+		content === "קישואים בתנור" ||
+		content === "תיבול בזיליקום" ||
+				content === "בורגול" ||
+		content === "טחינה"
+	       )
+                should_click = true;
+        }
+
 	if (personName === "אבל גורדון") {
             if (content === "עגבניות שרי" ||
 		content === "גזר" ||
