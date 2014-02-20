@@ -321,6 +321,7 @@ function autofill() {
 
 	if (personName === "אבל גורדון") {
             if (content === "עגבניות שרי" ||
+            	content === "בולגרית" ||
 		content === "גזר" ||
 		content === "פסטה" ||
 		content === "תירס" ||
@@ -331,8 +332,7 @@ function autofill() {
 		content === "אפונה ירוקה" ||
 		content === "גרעיני חומוס" ||
 		content === "חציל בתנור" ||
-		content === "טחינה" ||
-		content === "גבינת עיזים"
+		content === "טחינה"
 	       )
                 should_click = true;
         }        
