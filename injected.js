@@ -359,6 +359,27 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "Eran Cohen") {
+                if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "תירס" ||
+                content === "נבטים" ||
+                content === "אפןנה ירוקה" ||
+                content === "פלפל אדום" ||
+                content === "שעועית ירוקה" ||
+                content === "עגבניה" ||
+                content === "פטריות" ||
+                content === "גרעיני חומוס" ||
+                content === "גרעיני חמנייה" ||
+                content === "טונה" ||
+                content === "זיתים ירוקים" ||
+                content === "תיבול לימון" ||
+                content === "וינגריט בלסמי" ||
+                content == "וינגריט הדרים"
+                )
+                should_click = true;
+        }
+
 
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
