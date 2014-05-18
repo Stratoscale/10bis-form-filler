@@ -337,6 +337,29 @@ function autofill() {
                 should_click = true;
         }        
 
+        if (personName === "שמשון צימרמן") {
+            if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "עדשים שחורים" ||
+                content === "זיתים שחורים" ||
+                content === "שעועית ירוקה" ||
+                content === "קרוטונים" ||
+                content === "גרעיני חומוס" ||
+                content === "פסטה" ||
+                content === "תפוח אדמה" ||
+                content === "גרעיני חמניה" ||
+                content === "תירס" ||
+                content === "כרוב לבן" ||
+                content === "נבטי חמנייה" ||
+                content === "מלפפון חמוץ" ||
+                content === "תיבול שמן זית" ||
+                content === "עשבי תיבול" ||
+                content === "פסטו"
+                )
+                should_click = true;
+        }
+
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
