@@ -380,7 +380,7 @@ function autofill() {
                 should_click = true;
         }
 
-        if (personName === "Avishay Traeger") {
+        if (personName === "אבישי טריגר") {
                 if (content === "מלפפון" ||
                 content === "גזר" ||
                 content === "תירס" ||
