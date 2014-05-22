@@ -380,6 +380,26 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "Avishay Traeger") {
+                if (content === "מלפפון" ||
+                content === "גזר" ||
+                content === "תירס" ||
+                content === "עדשים שחורים" ||
+                content === "אפןנה ירוקה" ||
+                content === "פלפל אדום" ||
+                content === "שעועית ירוקה" ||
+                content === "עגבניה" ||
+                content === "גרעיני חמנייה" ||
+                content === "טונה" ||
+                maybe(content === "קרוטונים", 0.5) ||
+                content === "זיתים ירוקים" ||
+                content === "חסה" ||
+                content === "תיבול לימון" ||
+                content === "איטלקי חריף"
+                )
+                should_click = true;
+        }
+
 
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
