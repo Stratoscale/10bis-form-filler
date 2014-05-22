@@ -364,7 +364,7 @@ function autofill() {
                 content === "גזר" ||
                 content === "תירס" ||
                 content === "נבטים" ||
-                content === "אפןנה ירוקה" ||
+                content === "אפונה ירוקה" ||
                 content === "פלפל אדום" ||
                 content === "שעועית ירוקה" ||
                 content === "עגבניה" ||
@@ -380,12 +380,12 @@ function autofill() {
                 should_click = true;
         }
 
-        if (personName === "אבישי טריגר") {
+        if (personName === "אבישי טריגר ") {
                 if (content === "מלפפון" ||
                 content === "גזר" ||
                 content === "תירס" ||
                 content === "עדשים שחורים" ||
-                content === "אפןנה ירוקה" ||
+                content === "אפונה ירוקה" ||
                 content === "פלפל אדום" ||
                 content === "שעועית ירוקה" ||
                 content === "עגבניה" ||
