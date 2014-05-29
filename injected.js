@@ -390,11 +390,13 @@ function autofill() {
                 content === "שעועית ירוקה" ||
                 content === "עגבניה" ||
                 content === "גרעיני חמנייה" ||
-                content === "טונה" ||
+                content === "עלי בייבי" ||
                 maybe(content === "קרוטונים", 0.5) ||
                 content === "זיתים ירוקים" ||
                 content === "חסה" ||
                 content === "תיבול לימון" ||
+                content === "בצל ירוק" ||
+                content === "עשבי תיבול" ||
                 content === "איטלקי חריף"
                 )
                 should_click = true;
