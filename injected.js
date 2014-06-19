@@ -390,8 +390,7 @@ function autofill() {
                 content === "שעועית ירוקה" ||
                 content === "עגבניה" ||
                 content === "גרעיני חמנייה" ||
-                content === "עלי בייבי" ||
-                maybe(content === "קרוטונים", 0.5) ||
+                content === "קרוטונים" ||
                 content === "זיתים ירוקים" ||
                 content === "חסה" ||
                 content === "תיבול לימון" ||
