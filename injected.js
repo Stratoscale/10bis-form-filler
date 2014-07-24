@@ -383,11 +383,11 @@ function autofill() {
                 content === "שעועית ירוקה" ||
                 content === "עגבניה" ||
                 content === "פטריות" ||
-                content === "גרעיני חומוס" ||
                 content === "גרעיני חמנייה" ||
-                content === "טונה" ||
+                content === "בצל ירוק" ||
+                content === "קרוטונים" ||
                 content === "זיתים ירוקים" ||
-                content === "תיבול לימון" ||
+                content === "תיבול זעתר" ||
                 content === "וינגריט בלסמי" ||
                 content == "וינגריט הדרים"
                 )
