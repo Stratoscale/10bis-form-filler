@@ -47,6 +47,7 @@ function autofill() {
 
         content = $.trim(content);
 
+				console.log( personName )
         if (personName === "דן אלוני") {
             if (content === "חסה" ||
                 content === "מלפפון" ||
@@ -252,7 +253,7 @@ function autofill() {
                 should_click = true;
         }
 
-        if (personName === "אדוארדו ורסבסקי") {
+        if (personName === "אדוארדו  ורסבסקי") {
             if (content === "חסה" ||
                 content === "עגבניה" ||
                 content === "קוסלו-כרוב עם גזר במיונז" ||
