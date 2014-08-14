@@ -252,6 +252,20 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "אדוארדו ורסבסקי") {
+            if (content === "חסה" ||
+                content === "עגבניה" ||
+                content === "קוסלו-כרוב עם גזר במיונז" ||
+                content === "תפוח אדמה" ||
+                content === "עגבניות שרי" ||
+                content === "זיתים ירוקים" ||
+                content === "ביצה קשה" ||
+                content === "תיבול לימון" ||
+                content === "טחינה"
+               )
+                should_click = true;
+        }
+
         if (personName === "פבל פוקס") {
             if (content === "חסה" ||
                 content === "עלי בייבי" ||
@@ -401,6 +415,35 @@ function autofill() {
                 should_click = true;
         }
 
+
+        if (personName === "Eyal Posener") {
+                if (content === "מלפפון" ||
+                content === "תירס" ||
+                content === "קוסלו-כרוב עם גזר במיונז" ||
+                content === "עגבניות שרי" ||
+                content === "נבטי חמנייה" ||
+                content === "גרעיני חמנייה" ||
+								content === "בצל סגול" ||
+								content === "חמוציות" ||
+								content === "פטרוזיליה" ||
+								content === "עלי בייבי" ||
+								content === "נבטים" ||
+								content === "סלק אדום מגורד" ||
+								content === "חמוציות" ||
+								content === "קרוטונים" ||
+								content === "פטריות" ||
+								content === "עירית" ||
+								content === "פלפל צהוב קלוי בתנור" ||
+								content === "נבטי חמניה" ||
+								content === "תפוח אדמה" ||
+								content === "עגבניות שרי" ||
+								content === "בצל ירוק" ||
+								content === "תיבול בזיליקום" ||
+								content === "שום ולימון" ||
+								content === "פסטו"
+                )
+                should_click = true;
+        }
 
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
