@@ -3,6 +3,12 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "10bis form filler",
+  "background": {
+    "scripts": ["buttonhook.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
   "content_scripts": [
     {
       "js": [

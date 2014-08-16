@@ -37,7 +37,7 @@ function autofill() {
     var texts = EXT10BIS_getTextNodesIn(document);
     for (i = 0; i < texts.length; i++) {
         item = texts[i];
-        var content = $.trim(item.data);
+        var content = item.data.trim();
         var should_click = false;
 
         var parenthesis = content.indexOf("(");
@@ -45,7 +45,7 @@ function autofill() {
                 content = content.substring(0, parenthesis);
         }
 
-        content = $.trim(content);
+        content = content.trim();
 
         if (personName === "דן אלוני") {
             if (content === "חסה" ||
