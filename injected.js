@@ -446,6 +446,23 @@ function autofill() {
                 should_click = true;
         }
 
+        if (personName === "גיא קרמניצר") {
+            if (content === "חסה" ||
+                content === "עלי בייבי" ||
+                content === "גזר" ||
+                content === "תירס" ||
+                content === "פלפל צהוב קלוי בתנור" ||
+                content === "אפונה ירוקה" ||
+                content === "עדשים שחורים" ||
+                content === "חציל בתנור" ||
+                content === "גרעיני חומוס" ||
+                content === "קישואים בתנור" ||
+                content === "עירית" ||
+                content === "תיבול לימון" ||
+                content === "טחינה")
+                should_click = true;
+         }
+
         if (should_click) {
             var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
             input.click();
