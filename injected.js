@@ -1,4 +1,3 @@
-ITEM_CLASS_NAME = "dishContent_dishDetailsLI";
 PREFERENCES = {
     "דן אלוני": [
         "חסה",
@@ -32,7 +31,7 @@ PREFERENCES = {
         "עגבניה",
         "מלפפון",
         "נבטים",
-        "קרוטונים",
+        "קרוטונים|0.5",
         "פסטו",
         "תיבול בזיליקום"
     ],
@@ -340,42 +339,63 @@ PREFERENCES = {
     ]
 };
 
-// Are you tired of eating the exact same salad every time? SALVATION!
-function maybe(flag, probability) {
-    return (Math.random() < probability) && flag;
+
+ITEM_CLASS_NAME = "dishContent_dishDetailsLI";
+USER_SELECT_QUERY = "select[data-dish-assigned-users-select]";
+
+function maybe(probability) {
+    return (Math.random() < probability)
 }
 
 function getPersonName() {
-    var i, item, selectedOption;
-    var selects = document.getElementsByTagName("select");
-    for (i = 0; i < selects.length; i++) {
-        item = selects[i];
-        if (item.getAttribute("data-dish-assigned-users-select")) {
-            selectedOption = item.getElementsByTagName("option")[item.selectedIndex];
-            return getText(selectedOption).replace(/\s+/g, " ");
-        }
-    }
+    var select = document.querySelector(USER_SELECT_QUERY);
+    var selectedOption = select.getElementsByTagName("option")[select.selectedIndex];
+    return getText(selectedOption).replace(/\s+/g, " ");
 }
 
 function getText(element) {
     return element.textContent.replace(/^\s+|\s+$/g,'')
 }
 
-function autofill() {
+function chosen(userPreferences, option) {
+    var result = false;
+    userPreferences.forEach(function (up) {
+        var userPreference = up.split("|");
+        if (userPreference[0] == option) {
+            if (userPreference[1]) {
+                result = maybe(parseFloat(userPreference[1]))
+            } else {
+                result = true
+            }
+        }
+    });
+    return result;
+}
 
+function autofill() {
     var personName = getPersonName();
+    var statusNode = document.createElement("span");
+    var wrapper = document.querySelector("#dishContent div[data-dish-assigned-users]");
+
     if (!(personName in PREFERENCES)) {
-        console.warn("Unknown person: ", personName);
+        alert("Who the #$%^@ is " + personName + " ?!?");
         return;
     }
 
-    var items = document.getElementsByClassName(ITEM_CLASS_NAME);
-    for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-        var label = item.getElementsByTagName("label")[0];
-        var labelText = getText(label);
-        if (PREFERENCES[personName].indexOf(labelText) != -1) {
-            item.getElementsByTagName("input")[0].click();
+    statusNode.textContent = " → another example of great taste is being applied ";
+    wrapper.appendChild(statusNode);
+
+    setTimeout(function() {
+        var labels = document.querySelectorAll("#dishContent label");
+        for (var i = 0; i < labels.length; i++) {
+            var label = labels[i];
+            var labelText = getText(label);
+            if (chosen(PREFERENCES[personName], labelText)) {
+                label.querySelector("input").click();
+            }
         }
-    }
+        wrapper.removeChild(statusNode);
+
+    }, 20);
+
 }
