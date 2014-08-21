@@ -1,24 +1,23 @@
 {
-  "name": "10bis form filler",
-  "version": "1.0",
-  "manifest_version": 2,
-  "description": "10bis form filler",
-  "content_scripts": [
-    {
-      "js": [
-        "content.js"
-      ],
-      "matches": [
-          "http://*/*",
-	      "https://*/*"
-      ],
-      "all_frames" : true
+    "name": "10bis Form Filler",
+    "version": "1.1",
+    "manifest_version": 2,
+    "description": "10bis Form Filler",
+    "background": {
+        "scripts": ["content.js"],
+        "persistent": true
+    },
+    "permissions": [
+        "declarativeContent",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://www.10bis.co.il/*"],
+            "js": ["injected.js"]
+        }
+    ],
+    "page_action": {
+        "default_icon": "icon.png"
     }
-  ],
-  "web_accessible_resources" : [
-      "injected.js"
-  ],
-  "permissions": [
-     "http://locahost:2907/*"
-  ]
 }

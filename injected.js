@@ -1,471 +1,381 @@
-function EXT10BIS_getTextNodesIn(node, includeWhitespaceNodes) {
-    var textNodes = [], whitespace = /^\s*$/;
+ITEM_CLASS_NAME = "dishContent_dishDetailsLI";
+PREFERENCES = {
+    "דן אלוני": [
+        "חסה",
+        "מלפפון",
+        "גזר",
+        "פסטה",
+        "תירס",
+        "כרוב לבן",
+        "נבטים",
+        "מלפפון חמוץ",
+        "תיבול שמן זית",
+        "וינגריט בלסמי",
+        "איטלקי חריף"
+    ],
+    "Lior Segev": [
+        "חסה",
+        "עלי בייבי",
+        "גזר",
+        "תירס",
+        "פלפל צהוב קלוי בתנור",
+        "אפונה ירוקה",
+        "עדשים שחורים",
+        "חציל בתנור",
+        "גרעיני חומוס",
+        "קישואים בתנור",
+        "עירית",
+        "תיבול לימון",
+        "טחינה"
+    ],
+    "Shahar Lev": [
+        "עגבניה",
+        "מלפפון",
+        "נבטים",
+        "קרוטונים",
+        "פסטו",
+        "תיבול בזיליקום"
+    ],
+    "Maor Vanmak": [
+        "חסה",
+        "מלפפון חמוץ",
+        "פלפל אדום",
+        "עגבניות שרי",
+        "עגבניה",
+        "תירס",
+        "תיבול לימון",
+        "גרעיני חמנייה",
+        "זיתים שחורים",
+        "טחינה",
+        "איטלקי חריף"
+    ],
+    "אריאל מייסלוס": [
+        "עלי בייבי",
+        "תירס",
+        "נבטים",
+        "נבטי חמנייה",
+        "אפונה ירוקה",
+        "שעועית ירוקה",
+        "בצל סגול",
+        "סלק אדום מגורד",
+        "עגבניות שרי",
+        "חציל בתנור",
+        "פטריות",
+        "קישואים בתנור",
+        "עלי בייבי",
+        "כדורי מוצרלה",
+        "זעתר",
+        "ויניגרט הדרים",
+        "תיבול זעתר",
+        "טחינה"
+    ],
+    "רותם דפני": [
+        "מלפפון",
+        "גזר",
+        "תירס",
+        "כרוב לבן",
+        "פלפל אדום",
+        "נבטי חמנייה",
+        "בצל סגול",
+        "מלפפון חמוץ",
+        "עגבניות שרי",
+        "זיתים ירוקים",
+        "ביצה קשה",
+        "תיבול שמן זית",
+        "עשבי תיבול"
+    ],
+    "ליעז קמפר": [
+        "עגבניה",
+        "תירס",
+        "נבטים",
+        "אפונה ירוקה",
+        "כרוב לבן",
+        "סלק אדום מגורד",
+        "עגבניות שרי",
+        "חציל בתנור",
+        "פלפל אדום",
+        "מלפפון",
+        "גזר",
+        "פטריות",
+        "כרוב לבן",
+        "קישואים בתנור",
+        "טחינה"
+    ],
+    "דורון גיל": [
+        "מלפפון",
+        "גזר",
+        "תירס",
+        "כרוב אדום",
+        "כרוב לבן",
+        "נבטים",
+        "נבטי חמנייה",
+        "שעועית ירוקה",
+        "מלפפון חמוץ",
+        "חמוציות",
+        "עגבניות שרי",
+        "פטריות",
+        "זיתים שחורים",
+        "גרעיני חומוס",
+        "גרעיני חמנייה",
+        "גבינת עיזים",
+        "טונה",
+        "תיבול לימון",
+        "וינגריט בלסמי"
+    ],
+    "חן שמלה": [
+        "מלפפון",
+        "גזר",
+        "אפונה ירוקה",
+        "תירס",
+        "פלפל צהוב קלוי בתנור",
+        "פלפל אדום",
+        "תפוח אדמה",
+        "קרוטונים",
+        "עגבניות שרי",
+        "קישואים בתנור",
+        "ביצה קשה",
+        "פטרוזיליה",
+        "תיבול לימון",
+        "טחינה",
+        "חרדל ודבש"
+    ],
+    "איתי בוגנר": [
+        "מלפפון",
+        "גזר",
+        "אפונה ירוקה",
+        "תירס",
+        "פלפל צהוב קלוי בתנור",
+        "פלפל אדום",
+        "תפוח אדמה",
+        "קרוטונים",
+        "עגבניות שרי",
+        "קישואים בתנור",
+        "ביצה קשה",
+        "פטרוזיליה",
+        "תיבול לימון",
+        "טחינה",
+        "חרדל ודבש"
+    ],
 
-    function getTextNodes(node) {
-        if (node.nodeType == 3) {
-            if (includeWhitespaceNodes || !whitespace.test(node.nodeValue)) {
-                textNodes.push(node);
-            }
-        } else {
-            for (var i = 0, len = node.childNodes.length; i < len; ++i) {
-                getTextNodes(node.childNodes[i]);
-            }
-        }
-    }
-
-    getTextNodes(node);
-    return textNodes;
-}
+    "סימון גרינברג": [
+        "עלי בייבי",
+        "מלפפון",
+        "פלפל אדום",
+        "פלפל ירוק",
+        "נבטי חמנייה",
+        "אפונה ירוקה",
+        "סלק אדום מגורד",
+        "עדשים שחורים",
+        "עגבניות שרי",
+        "גרעיני חומוס",
+        "עירית",
+        "פטרוזיליה",
+        "תיבול בזיליקום",
+        "איטלקי חריף"
+    ],
+    "זיוון עורי": [
+        "חסה",
+        "מלפפון",
+        "עגבניה",
+        "עלי בייבי",
+        "פלפל אדום",
+        "נבטים",
+        "סלק אדום מגורד",
+        "עדשים שחורים",
+        "תפוח אדמה",
+        "שעועית ירוקה",
+        "בצל ירוק",
+        "פטריות",
+        "גרעיני חמנייה",
+        "נבטי חמנייה",
+        "בורגול",
+        "גבינת עיזים",
+        "תיבול שמן זית",
+        "וינגריט בלסמי",
+        "איטלקי חריף"
+    ],
+    "אדוארדו ורסבסקי": [
+        "חסה",
+        "עגבניה",
+        "קוסלו-כרוב עם גזר במיונז",
+        "תפוח אדמה",
+        "עגבניות שרי",
+        "זיתים ירוקים",
+        "ביצה קשה",
+        "תיבול לימון",
+        "טחינה"
+    ],
+    "פבל פוקס": [
+        "חסה",
+        "עלי בייבי",
+        "עגבניה",
+        "גזר",
+        "פסטה",
+        "תירס",
+        "פלפל אדום",
+        "נבטים",
+        "נבטי חמנייה",
+        "בצל סגול",
+        "עגבניות שרי",
+        "חציל בתנור",
+        "גרעיני חמנייה",
+        "עירית",
+        "בצל ירוק",
+        "פטרוזיליה",
+        "תיבול זעתר",
+        "וינגריט בלסמי",
+        "פסטו",
+        "בולגרית"
+    ],
+    "אבל גורדון": [
+        "עגבניות שרי",
+        "בולגרית",
+        "גזר",
+        "פסטה",
+        "תירס",
+        "בצל סגול",
+        "פטריות",
+        "פלפל צהוב קלוי בתנור",
+        "תיבול שמן זית",
+        "אפונה ירוקה",
+        "גרעיני חומוס",
+        "חציל בתנור",
+        "טחינה"
+    ],
+    "שמשון צימרמן": [
+        "מלפפון",
+        "גזר",
+        "עדשים שחורים",
+        "זיתים שחורים",
+        "שעועית ירוקה",
+        "קרוטונים",
+        "גרעיני חומוס",
+        "פסטה",
+        "תפוח אדמה",
+        "גרעיני חמניה",
+        "תירס",
+        "כרוב לבן",
+        "נבטי חמנייה",
+        "מלפפון חמוץ",
+        "תיבול שמן זית",
+        "עשבי תיבול",
+        "פסטו"
+    ],
+    "Eran Cohen": [
+        "מלפפון",
+        "גזר",
+        "תירס",
+        "נבטים",
+        "אפונה ירוקה",
+        "פלפל אדום",
+        "שעועית ירוקה",
+        "עגבניה",
+        "פטריות",
+        "גרעיני חמנייה",
+        "בצל ירוק",
+        "קרוטונים",
+        "זיתים ירוקים",
+        "תיבול זעתר",
+        "וינגריט בלסמי",
+        "וינגריט הדרים"
+    ],
+    "אבישי טריגר ": [
+        "מלפפון",
+        "גזר",
+        "תירס",
+        "עדשים שחורים",
+        "אפונה ירוקה",
+        "פלפל אדום",
+        "שעועית ירוקה",
+        "עגבניה",
+        "גרעיני חמנייה",
+        "קרוטונים",
+        "זיתים ירוקים",
+        "חסה",
+        "תיבול לימון",
+        "בצל ירוק",
+        "עשבי תיבול",
+        "איטלקי חריף"
+    ],
+    "Eyal Posener": [
+        "מלפפון",
+        "תירס",
+        "קוסלו-כרוב עם גזר במיונז",
+        "עגבניות שרי",
+        "נבטי חמנייה",
+        "גרעיני חמנייה",
+        "בצל סגול",
+        "חמוציות",
+        "פטרוזיליה",
+        "עלי בייבי",
+        "נבטים",
+        "סלק אדום מגורד",
+        "חמוציות",
+        "קרוטונים",
+        "פטריות",
+        "עירית",
+        "פלפל צהוב קלוי בתנור",
+        "נבטי חמניה",
+        "תפוח אדמה",
+        "עגבניות שרי",
+        "בצל ירוק",
+        "תיבול בזיליקום",
+        "שום ולימון",
+        "פסטו"
+    ],
+    "גיא קרמניצר": [
+        "חסה",
+        "עלי בייבי",
+        "גזר",
+        "תירס",
+        "פלפל צהוב קלוי בתנור",
+        "אפונה ירוקה",
+        "עדשים שחורים",
+        "חציל בתנור",
+        "גרעיני חומוס",
+        "קישואים בתנור",
+        "עירית",
+        "תיבול לימון",
+        "טחינה"
+    ]
+};
 
 // Are you tired of eating the exact same salad every time? SALVATION!
 function maybe(flag, probability) {
     return (Math.random() < probability) && flag;
 }
 
-function autofill() {
-    var i, item;
-
-    var personName;
+function getPersonName() {
+    var i, item, selectedOption;
     var selects = document.getElementsByTagName("select");
     for (i = 0; i < selects.length; i++) {
         item = selects[i];
         if (item.getAttribute("data-dish-assigned-users-select")) {
-            personName = item.getElementsByTagName("option")[item.selectedIndex].childNodes[0].data;
+            selectedOption = item.getElementsByTagName("option")[item.selectedIndex];
+            return getText(selectedOption).replace(/\s+/g, " ");
         }
     }
+}
 
-    var texts = EXT10BIS_getTextNodesIn(document);
-    for (i = 0; i < texts.length; i++) {
-        item = texts[i];
-        var content = $.trim(item.data);
-        var should_click = false;
+function getText(element) {
+    return element.textContent.replace(/^\s+|\s+$/g,'')
+}
 
-        var parenthesis = content.indexOf("(");
-        if (parenthesis != -1) {
-                content = content.substring(0, parenthesis);
-        }
+function autofill() {
 
-        content = $.trim(content);
+    var personName = getPersonName();
+    if (!(personName in PREFERENCES)) {
+        console.warn("Unknown person: ", personName);
+        return;
+    }
 
-				console.log( personName )
-        if (personName === "דן אלוני") {
-            if (content === "חסה" ||
-                content === "מלפפון" ||
-                content === "גזר" ||
-                content === "פסטה" ||
-                content === "תירס" ||
-                content === "כרוב לבן" ||
-                content === "נבטים" ||
-                content === "מלפפון חמוץ" ||
-                content === "תיבול שמן זית" ||
-                content === "וינגריט בלסמי" ||
-                content === "איטלקי חריף")
-                should_click = true;
-        }
-
-        if (personName === "Lior Segev") {
-            if (content === "חסה" ||
-                content === "עלי בייבי" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "פלפל צהוב קלוי בתנור" ||
-                content === "אפונה ירוקה" ||
-                content === "עדשים שחורים" ||
-                content === "חציל בתנור" ||
-                content === "גרעיני חומוס" ||
-                content === "קישואים בתנור" ||
-                content === "עירית" ||
-                content === "תיבול לימון" ||
-                content === "טחינה")
-                should_click = true;
-        }
-
-        if (personName === "Shahar Lev") {
-            if (content === "עגבניה" ||
-                content === "מלפפון" ||
-                content === "נבטים" ||
-                maybe(content === "קרוטונים", 0.5) ||
-                content === "פסטו" ||
-                content === "תיבול בזיליקום")
-                should_click = true;
-        }
-
-        if (personName === "Maor Vanmak") {
-            if (content === "חסה" ||
-                content === "מלפפון חמוץ" ||
-                content === "פלפל אדום" ||
-                content === "עגבניות שרי" ||
-                content === "עגבניה"||
-                content === "תירס" ||
-                content === "תיבול לימון" ||
-                content === "גרעיני חמנייה" ||
-                content === "זיתים שחורים"||
-                content === "טחינה" ||
-                content === "איטלקי חריף")
-                should_click = true;
-        }
-
-        if (personName === "אריאל מייסלוס") {
-            if (content === "עלי בייבי" ||
-                content === "תירס" ||
-                content === "נבטים" ||
-                content === "נבטי חמנייה" ||
-                content === "אפונה ירוקה" ||
-                content === "שעועית ירוקה" ||
-                content === "בצל סגול" ||
-                content === "סלק אדום מגורד" ||
-                content === "עגבניות שרי" ||
-                content === "חציל בתנור" ||
-                content === "פטריות" ||
-                content === "קישואים בתנור" ||
-                content === "עלי בייבי" ||
-                content === "כדורי מוצרלה" ||
-                content === "זעתר" ||
-                content === "ויניגרט הדרים" ||
-                content === "תיבול זעתר" ||
-                content === "טחינה")
-                should_click = true;
-        }
-
-        if (personName === "רותם דפני") {
-            if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "כרוב לבן" ||
-                content === "פלפל אדום" ||
-                content === "נבטי חמנייה" ||
-                content === "בצל סגול" ||
-                content === "מלפפון חמוץ" ||
-                content === "עגבניות שרי" ||
-                content === "זיתים ירוקים" ||
-                content === "ביצה קשה" ||
-                content === "תיבול שמן זית" ||
-                content === "עשבי תיבול"
-                )
-                should_click = true;
-        }
-
-        if (personName === "ליעז קמפר ") { // the space there is intentional
-            if (content === "עגבניה" ||
-                content === "תירס" ||
-                content === "נבטים" ||
-                content === "אפונה ירוקה" ||
-                content === "כרוב לבן" ||
-                content === "סלק אדום מגורד" ||
-                content === "עגבניות שרי" ||
-                content === "חציל בתנור" ||
-                content === "פלפל אדום" ||
-                content === "מלפפון" ||
-                content === "גזר" ||
-                content === "פטריות" ||
-                content === "כרוב לבן" ||
-                content === "קישואים בתנור" ||
-                content === "טחינה")
-                should_click = true;
-        }
-
-        if (personName === "דורון גיל") {
-            if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "כרוב אדום" ||
-                content === "כרוב לבן" ||
-                content === "נבטים" ||
-                content === "נבטי חמנייה" ||
-                content === "שעועית ירוקה" ||
-                content === "מלפפון חמוץ" ||
-                content === "חמוציות" ||
-                content === "עגבניות שרי" ||
-                content === "פטריות" ||
-                content === "זיתים שחורים" ||
-                content === "גרעיני חומוס" ||
-                content === "גרעיני חמנייה" ||
-                content === "גבינת עיזים" ||
-                content === "טונה" ||
-                content === "תיבול לימון" ||
-                content === "וינגריט בלסמי")
-                should_click = true;
-        }
-
-        if (personName === "חן שמלה"  ||
-            personName === "איתי בוגנר") {
-            if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "אפונה ירוקה" ||
-                content === "תירס" ||
-                content === "פלפל צהוב קלוי בתנור" ||
-                content === "פלפל אדום" ||
-                content === "תפוח אדמה" ||
-                content === "קרוטונים" ||
-                content === "עגבניות שרי" ||
-                content === "קישואים בתנור" ||
-                content === "ביצה קשה" ||
-                content === "פטרוזיליה" ||
-                content === "תיבול לימון" ||
-                content === "טחינה" ||
-                content === "חרדל ודבש")
-                should_click = true;
-        }
-
-        if (personName === "סימון גרינברג") {
-            if (content === "עלי בייבי" ||
-                content === "מלפפון" ||
-                content === "פלפל אדום" ||
-                content === "פלפל ירוק" ||
-                content === "נבטי חמנייה" ||
-                content === "אפונה ירוקה" ||
-                content === "סלק אדום מגורד" ||
-                content === "עדשים שחורים" ||
-                content === "עגבניות שרי" ||
-                content === "גרעיני חומוס" ||
-                content === "עירית" ||
-                content === "פטרוזיליה" ||
-                content === "תיבול בזיליקום" ||
-                content === "איטלקי חריף"
-               )
-                should_click = true;
-        }
-
-        if (personName === "זיוון עורי") {
-            if (content === "חסה" ||
-                content === "מלפפון" ||
-                content === "עגבניה" ||
-                content === "עלי בייבי" ||
-                content === "פלפל אדום" ||
-                content === "נבטים" ||
-                content === "סלק אדום מגורד" ||
-                content === "עדשים שחורים" ||
-                content === "תפוח אדמה" ||
-                content === "שעועית ירוקה" ||
-                content === "בצל ירוק" ||
-                content === "פטריות" ||
-                content === "גרעיני חמנייה" ||
-                content === "נבטי חמנייה" ||
-
-                content === "בורגול" ||
-                content === "גבינת עיזים" ||
-
-                content === "תיבול שמן זית" ||
-                content === "וינגריט בלסמי" ||
-                content === "איטלקי חריף"
-                // Unsupported yet: content === "פריגת תפוזים" ||
-               )
-                should_click = true;
-        }
-
-        if (personName === "אדוארדו  ורסבסקי") {
-            if (content === "חסה" ||
-                content === "עגבניה" ||
-                content === "קוסלו-כרוב עם גזר במיונז" ||
-                content === "תפוח אדמה" ||
-                content === "עגבניות שרי" ||
-                content === "זיתים ירוקים" ||
-                content === "ביצה קשה" ||
-                content === "תיבול לימון" ||
-                content === "טחינה"
-               )
-                should_click = true;
-        }
-
-        if (personName === "פבל פוקס") {
-            if (content === "חסה" ||
-                content === "עלי בייבי" ||
-                content === "עגבניה" ||
-                content === "גזר" ||
-                content === "פסטה" ||
-                content === "תירס" ||
-                content === "פלפל אדום" ||
-                content === "נבטים" ||
-                content === "נבטי חמנייה" ||
-                content === "בצל סגול" ||
-                content === "עגבניות שרי" ||
-                content === "חציל בתנור" ||
-                content === "גרעיני חמנייה" ||
-                content === "עירית" ||
-                content === "בצל ירוק" ||
-                content === "פטרוזיליה" ||
-                content === "תיבול זעתר" ||
-                content === "וינגריט בלסמי" ||
-                content === "פסטו" ||
-                content === "בולגרית"
-               )
-                should_click = true;
-        }
-
-	if (personName === "מילה גנדלסמן") {
-            if (content === "חמוציות" ||
-		content === "גרעיני חמנייה" ||
-		content === "עלי בייבי" ||
-		content === "עדשים שחורים" ||
-		content === "פלפל אדום" ||
-		content === "בצל סגול" ||
-		content === "עגבניות שרי" ||
-		content === "עירית" ||
-		content === "פטריות" ||
-		content === "טונה" ||
-		content === "תפוח אדמה" ||
-		content === "מלפפון חמוץ" ||
-		content === "אפונה ירוקה" ||
-		content === "בורגול" ||
-		content === "חרדל דבש" ||
-		content === "איטלקי חריף"
-	       )
-                should_click = true;
-        }
-        
-	if (personName === "גיא קרן") {
-      if (content === "עגבניה" ||
-		content === "מלפפון" ||
-		content === "פסטה" ||
-		content === "תירס" ||
-		content === "תפוח אדמה" ||
-		content === "בצל סגול" ||
-		content === "חמוציות" ||
-		content === "עדשים שחורים" ||
-		content === "קרוטונים" ||
-		content === "פטריות" ||
-		content === "זיתים ירוקים" ||
-		content === "גרעיני חמנייה" ||
-		content === "קישואים בתנור" ||
-		content === "תיבול בזיליקום" ||
-				content === "בורגול" ||
-		content === "טחינה"
-	       )
-                should_click = true;
-        }
-
-	if (personName === "אבל גורדון") {
-            if (content === "עגבניות שרי" ||
-            	content === "בולגרית" ||
-		content === "גזר" ||
-		content === "פסטה" ||
-		content === "תירס" ||
-		content === "בצל סגול" ||
-		content === "פטריות" ||
-		content === "פלפל צהוב קלוי בתנור" ||
-		content === "תיבול שמן זית" ||
-		content === "אפונה ירוקה" ||
-		content === "גרעיני חומוס" ||
-		content === "חציל בתנור" ||
-		content === "טחינה"
-	       )
-                should_click = true;
-        }        
-
-        if (personName === "שמשון צימרמן") {
-            if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "עדשים שחורים" ||
-                content === "זיתים שחורים" ||
-                content === "שעועית ירוקה" ||
-                content === "קרוטונים" ||
-                content === "גרעיני חומוס" ||
-                content === "פסטה" ||
-                content === "תפוח אדמה" ||
-                content === "גרעיני חמניה" ||
-                content === "תירס" ||
-                content === "כרוב לבן" ||
-                content === "נבטי חמנייה" ||
-                content === "מלפפון חמוץ" ||
-                content === "תיבול שמן זית" ||
-                content === "עשבי תיבול" ||
-                content === "פסטו"
-                )
-                should_click = true;
-        }
-
-        if (personName === "Eran Cohen") {
-                if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "נבטים" ||
-                content === "אפונה ירוקה" ||
-                content === "פלפל אדום" ||
-                content === "שעועית ירוקה" ||
-                content === "עגבניה" ||
-                content === "פטריות" ||
-                content === "גרעיני חמנייה" ||
-                content === "בצל ירוק" ||
-                content === "קרוטונים" ||
-                content === "זיתים ירוקים" ||
-                content === "תיבול זעתר" ||
-                content === "וינגריט בלסמי" ||
-                content == "וינגריט הדרים"
-                )
-                should_click = true;
-        }
-
-        if (personName === "אבישי טריגר ") {
-                if (content === "מלפפון" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "עדשים שחורים" ||
-                content === "אפונה ירוקה" ||
-                content === "פלפל אדום" ||
-                content === "שעועית ירוקה" ||
-                content === "עגבניה" ||
-                content === "גרעיני חמנייה" ||
-                content === "קרוטונים" ||
-                content === "זיתים ירוקים" ||
-                content === "חסה" ||
-                content === "תיבול לימון" ||
-                content === "בצל ירוק" ||
-                content === "עשבי תיבול" ||
-                content === "איטלקי חריף"
-                )
-                should_click = true;
-        }
-
-
-        if (personName === "Eyal Posener") {
-                if (content === "מלפפון" ||
-                content === "תירס" ||
-                content === "קוסלו-כרוב עם גזר במיונז" ||
-                content === "עגבניות שרי" ||
-                content === "נבטי חמנייה" ||
-                content === "גרעיני חמנייה" ||
-								content === "בצל סגול" ||
-								content === "חמוציות" ||
-								content === "פטרוזיליה" ||
-								content === "עלי בייבי" ||
-								content === "נבטים" ||
-								content === "סלק אדום מגורד" ||
-								content === "חמוציות" ||
-								content === "קרוטונים" ||
-								content === "פטריות" ||
-								content === "עירית" ||
-								content === "פלפל צהוב קלוי בתנור" ||
-								content === "נבטי חמניה" ||
-								content === "תפוח אדמה" ||
-								content === "עגבניות שרי" ||
-								content === "בצל ירוק" ||
-								content === "תיבול בזיליקום" ||
-								content === "שום ולימון" ||
-								content === "פסטו"
-                )
-                should_click = true;
-        }
-
-        if (personName === "גיא קרמניצר") {
-            if (content === "חסה" ||
-                content === "עלי בייבי" ||
-                content === "גזר" ||
-                content === "תירס" ||
-                content === "פלפל צהוב קלוי בתנור" ||
-                content === "אפונה ירוקה" ||
-                content === "עדשים שחורים" ||
-                content === "חציל בתנור" ||
-                content === "גרעיני חומוס" ||
-                content === "קישואים בתנור" ||
-                content === "עירית" ||
-                content === "תיבול לימון" ||
-                content === "טחינה")
-                should_click = true;
-         }
-
-        if (should_click) {
-            var input = item.parentElement.parentElement.getElementsByTagName("input")[0];
-            input.click();
+    var items = document.getElementsByClassName(ITEM_CLASS_NAME);
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var label = item.getElementsByTagName("label")[0];
+        var labelText = getText(label);
+        if (PREFERENCES[personName].indexOf(labelText) != -1) {
+            item.getElementsByTagName("input")[0].click();
         }
     }
 }

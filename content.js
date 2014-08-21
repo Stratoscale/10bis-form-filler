@@ -1,13 +1,23 @@
-function onload() {
-}
+chrome.pageAction.onClicked.addListener(function () {
+    chrome.tabs.executeScript(null, {code: "autofill()"});
+});
 
-if (document.baseURI.indexOf("https://www.10bis.co.il") === 0  ||
-    document.baseURI.indexOf("http://www.10bis.co.il") === 0) {
-    scriptTag = document.createElement('script');
-    scriptTag.type = 'text/javascript';
-    scriptTag.src = chrome.extension.getURL("injected.js");
-    scriptTag.onload = onload;
+chrome.runtime.onInstalled.addListener(function () {
+    // Replace all rules ...
+    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+        // With a new rule ...
+        chrome.declarativeContent.onPageChanged.addRules([
+            {
+                // That fires when a page's URL contains a 'g' ...
+                conditions: [
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl: { urlContains: '10bis.co.il' }
+                    })
+                ],
+                // And shows the extension's page action.
+                actions: [ new chrome.declarativeContent.ShowPageAction() ]
+            }
+        ]);
 
-    var head = document.getElementsByTagName('head')[0];
-    head.appendChild(scriptTag);
-}
+    });
+});
