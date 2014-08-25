@@ -13,7 +13,7 @@
     ],
     "content_scripts": [
         {
-            "matches": ["http://www.10bis.co.il/*"],
+            "matches": ["http://www.10bis.co.il/*", "https://www.10bis.co.il/*"],
             "js": ["injected.js"]
         }
     ],
